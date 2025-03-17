@@ -1,12 +1,10 @@
 "use client";
-import Image from "next/image";
-import { RequestFreeDogWalkForm } from "./components/request-free-walks-form/request-free-dog-walk-form";
-import { ToDoList } from "./components/to-do-list";
 import { Testimonies } from "./components/testimonies";
 import { Gallery } from "./components/gallery";
 import { Disclaimer } from "./components/disclaimer";
-import { DogAdvice } from "./components/dog-advice";
+import { DogTrainingAdvice } from "./components/dog-training-advice";
 import { AboutMe } from "./components/about-me";
+import { DogWalksTable } from "./components/request-free-walks-form/dog-walks-table";
 
 export default function Home() {
   return (
@@ -20,45 +18,16 @@ export default function Home() {
       <div className="title-header">
         <main>
           <div className="inner-main">
-            <AboutMe />
+            <DogWalksTable />
             <hr />
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <Image
-                      className="dark:invert center"
-                      src="/kerala-doggie.jpg"
-                      alt="Kerala Doggie"
-                      width={300}
-                      height={300}
-                      priority
-                    />
-                    <Image
-                      className="dark:invert center"
-                      src="/dog-paw-prints-lg.png"
-                      alt="Kerala Doggie"
-                      width={300}
-                      height={300}
-                      priority
-                    />
-                  </td>
-                  <td>
-                    <RequestFreeDogWalkForm />
-                  </td>
-                  <td>
-                    <ToDoList />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <AboutMe />
           </div>
           <hr />
           <Testimonies />
           <hr />
           <Gallery />
           <hr />
-          <DogAdvice />
+          <DogTrainingAdvice />
           <hr />
           <Disclaimer />
         </main>

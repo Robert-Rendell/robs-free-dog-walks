@@ -3,30 +3,23 @@ export function Gallery() {
   return (
     <>
       <h1>Gallery</h1>
-      <p>Here it is</p>
       <table>
         <tbody>
           <tr>
             <td>
               <Image
-                className="dark:invert center"
+                className="dark:invert center rounded-picture"
                 src="/lilah.jpeg"
                 alt="Lilah"
                 width={300}
                 height={300}
                 priority
               />
+              <span>Lucky</span>
+              <span>Charlie</span>
+              <span>Oryn</span>
             </td>
-            <td>
-              <Image
-                className="dark:invert center"
-                src="/oryn.jpeg"
-                alt="Oryn"
-                width={300}
-                height={300}
-                priority
-              />
-            </td>
+            <td></td>
           </tr>
         </tbody>
       </table>

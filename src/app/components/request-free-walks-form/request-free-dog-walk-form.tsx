@@ -45,7 +45,7 @@ export function RequestFreeDogWalkForm() {
       <div className="request-walk-form">
         <h1>Request a free dog walk</h1>
 
-        <form id="request-walk-form">
+        <form>
           <p>Your name</p>
           <input
             type="text"
@@ -59,8 +59,7 @@ export function RequestFreeDogWalkForm() {
             value={ownerEmail}
           />
           <p>Your message</p>
-          <input
-            type="email"
+          <textarea
             onChange={(e) => setOwnerMessage(e.target.value)}
             value={ownerMessage}
           />
