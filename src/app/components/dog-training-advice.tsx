@@ -42,28 +42,47 @@ export function DogTrainingAdvice() {
             <tr>
               <td>Eye contact</td>
               <td>
-                Very important to establish a bond through eye contact; and it
-                is a way to know when your dog is focusing on you.
+                It is very important to establish a bond through eye contact and
+                it is a way to see when your dog is focusing on you (if they are
+                looking back).
               </td>
             </tr>
             <tr>
               <td>Timing</td>
               <td>
                 It is important to reward your dog when they make progress in
-                the desired behaviour and not before.
+                the desired behaviour and not before. <br />
+                If you scold your dog, it is extremely important to do it
+                immediately after the bad behaviour (as though you are catching
+                them in the act), so that your dog understands what the scolding
+                is for.
               </td>
             </tr>
             <tr>
               <td>Vocal Patterns</td>
-              <td></td>
+              <td>
+                It&apos;s very important you are careful with your pitch + tone:
+                <ul>
+                  <li>An excited vocal pattern can be rewarding.</li>
+                  <li>A sharp, loud pitch can be alarming for the dog.</li>
+                  <li>A quiet and soft tone does not always stimulate dogs.</li>
+                </ul>
+              </td>
             </tr>
             <tr>
               <td>Repetition</td>
-              <td></td>
+              <td>
+                With any learning, or more appropriately muscle building (neural
+                networks), the muscle grows stronger when repeating the same
+                behaviour.
+              </td>
             </tr>
             <tr>
               <td>Patience</td>
-              <td></td>
+              <td>
+                Do not try to teach your dog when you are tired. Always have
+                patience; it pays off!
+              </td>
             </tr>
           </tbody>
         </table>
