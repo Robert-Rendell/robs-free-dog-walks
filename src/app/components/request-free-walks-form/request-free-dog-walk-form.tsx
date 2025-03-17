@@ -16,6 +16,11 @@ export function RequestFreeDogWalkForm() {
   const [dogBreed, setDogBreed] = useState<string>();
   const [formState, setFormState] = useState<FormState>("draft");
 
+  function formOnChange() {
+    if (!ownerEmail) {
+      setFormState("draft");
+    }
+  }
   function populateDogBreeds(): ReactNode {
     const options = [
       "Border Collie",
@@ -45,7 +50,7 @@ export function RequestFreeDogWalkForm() {
       <div className="request-walk-form">
         <h1>Request a free dog walk</h1>
 
-        <form>
+        <form onChange={formOnChange}>
           <p>Your name</p>
           <input
             type="text"
