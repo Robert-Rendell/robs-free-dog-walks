@@ -32,7 +32,7 @@ export function RequestFreeDogWalkForm() {
     );
   }
 
-  function requestWalkFormSubmitted(e: any) {
+  function requestWalkFormSubmitted() {
     setOwnerEmail("");
     setOwnerName("");
     setOwnerMessage("");
@@ -58,6 +58,12 @@ export function RequestFreeDogWalkForm() {
             onChange={(e) => setOwnerEmail(e.target.value)}
             value={ownerEmail}
           />
+          <p>Your message</p>
+          <input
+            type="email"
+            onChange={(e) => setOwnerMessage(e.target.value)}
+            value={ownerMessage}
+          />
 
           <p>Dog Breed</p>
           <select
@@ -70,13 +76,14 @@ export function RequestFreeDogWalkForm() {
           <input
             type="datetime-local"
             onChange={(e) => setBorrowDateTime(e.target.value)}
+            value={borrowDateTime}
           />
           <input
             className="submit-button"
             name="submit"
             type="button"
             value={formStateLabels[formState]}
-            onClick={(e) => requestWalkFormSubmitted(e)}
+            onClick={requestWalkFormSubmitted}
           />
         </form>
       </div>

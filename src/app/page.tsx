@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <div className="title-header">
-        <h1>Rob's Free Dog Walks</h1>
+        <h1>Rob{"'"}s Free Dog Walks</h1>
         <h2>~ Based in Glasgow ~</h2>
         <hr />
       </div>
