@@ -1,5 +1,5 @@
 "use client";
-import { Testimonies } from "./components/testimonies";
+import { Testimonies } from "./components/testimonies/testimonies";
 import { Gallery } from "./components/gallery";
 import { DogTrainingAdvice } from "./components/dog-training-advice";
 import { AboutMe } from "./components/about-me";

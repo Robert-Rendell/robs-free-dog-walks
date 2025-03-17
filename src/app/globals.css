@@ -131,3 +131,8 @@ b {
   border: 1px solid black;
   padding: 5px;
 }
+
+.testimony {
+  text-align: left;
+  max-width: 1000px;
+}
