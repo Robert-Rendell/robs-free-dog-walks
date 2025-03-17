@@ -45,6 +45,15 @@ hr {
 #request-walk-form {
 }
 
+.rob-dog-box {
+  border: 3px solid grey;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  max-width: 450px;
+  margin: 5px;
+}
+
 .request-walk-form {
   border: 3px solid grey;
   border-radius: 10px;
@@ -88,4 +97,11 @@ select {
 input .submit-button :hover {
   color: white;
   background-color: black;
+}
+
+#available-slots-div {
+}
+
+#about-me {
+  text-align: left;
 }

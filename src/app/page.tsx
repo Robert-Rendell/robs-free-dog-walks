@@ -6,6 +6,7 @@ import { Testimonies } from "./components/testimonies";
 import { Gallery } from "./components/gallery";
 import { Disclaimer } from "./components/disclaimer";
 import { DogAdvice } from "./components/dog-advice";
+import { AboutMe } from "./components/about-me";
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
       <div className="title-header">
         <main>
           <div className="inner-main">
+            <AboutMe />
+            <hr />
             <table>
               <tbody>
                 <tr>
