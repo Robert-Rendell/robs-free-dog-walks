@@ -24,3 +24,58 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+  font-size:xx-large;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+ul {
+  list-style: circle;
+  margin-left: 25px;
+}
+
+hr {
+  border: 1px solid black;
+}
+
+#request-walk-form {
+
+}
+
+.request-walk-form {
+  border: 3px solid grey;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  max-width: 400px;
+}
+
+.request-walk-form input, select {
+  border-radius: 10px;
+  border: 3px solid indigo;
+  padding: 5px;
+  margin: 5px;
+}
+
+.title-header {
+  padding: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+#to-do-list {
+  text-align: left;
+}
+
+#main {
+  justify-content: center;
+  text-align: center;
+}
+
+.inner-main {
+  width: auto;
+}
