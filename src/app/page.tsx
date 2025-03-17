@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Image from "next/image";
 import { RequestFreeDogWalkForm } from "./components/request-free-walks-form/request-free-dog-walk-form";
 import { ToDoList } from "./components/to-do-list";
@@ -8,57 +8,51 @@ import { Disclaimer } from "./components/disclaimer";
 import { DogAdvice } from "./components/dog-advice";
 
 export default function Home() {
-
   return (
     <>
       <div className="title-header">
         <h1>Rob's Free Dog Walks</h1>
         <h2>~ Based in Glasgow ~</h2>
-        <hr/>
+        <hr />
       </div>
 
       <div className="title-header">
-
         <main>
           <div className="inner-main">
-
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                <Image
-            className="dark:invert center"
-            src="/kerala-doggie.jpg"
-            alt="Kerala Doggie"
-            width={300}
-            height={300}
-            priority
-          />
-                </td>
-                <td>
-                <RequestFreeDogWalkForm />
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <Image
+                      className="dark:invert center"
+                      src="/kerala-doggie.jpg"
+                      alt="Kerala Doggie"
+                      width={300}
+                      height={300}
+                      priority
+                    />
                   </td>
                   <td>
-                  <ToDoList/>
+                    <RequestFreeDogWalkForm />
                   </td>
-              </tr>
-            </tbody>
-          </table>
-
-
+                  <td>
+                    <ToDoList />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <hr/>
-          <Testimonies/>
-          <hr/>
-          <Gallery/>
-          <hr/>
-          <DogAdvice/>
-          <hr/>
-          <Disclaimer/>
+          <hr />
+          <Testimonies />
+          <hr />
+          <Gallery />
+          <hr />
+          <DogAdvice />
+          <hr />
+          <Disclaimer />
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
           <hr />
-       
         </footer>
       </div>
     </>

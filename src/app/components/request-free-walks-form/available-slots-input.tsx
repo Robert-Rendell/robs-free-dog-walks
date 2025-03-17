@@ -1,3 +1,1 @@
-export function AvailableSlotsInput () {
-    
-}
+export function AvailableSlotsInput() {}
