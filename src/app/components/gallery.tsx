@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { GalleryPicture } from "./gallery-picture";
+
 export function Gallery() {
   return (
     <>
@@ -7,14 +8,8 @@ export function Gallery() {
         <tbody>
           <tr>
             <td>
-              <Image
-                className="dark:invert center rounded-picture"
-                src="/lilah.jpeg"
-                alt="Lilah"
-                width={300}
-                height={300}
-                priority
-              />
+              <GalleryPicture filename="lilah.jpeg" caption="Lilah" />
+
               <span>Lucky</span>
               <span>Charlie</span>
               <span>Oryn</span>

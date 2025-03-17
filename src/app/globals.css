@@ -125,3 +125,9 @@ a {
 b {
   color: indigo;
 }
+
+.dog-training-advice-table,
+.dog-training-advice-table td {
+  border: 1px solid black;
+  padding: 5px;
+}

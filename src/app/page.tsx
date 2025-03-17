@@ -1,10 +1,10 @@
 "use client";
 import { Testimonies } from "./components/testimonies";
 import { Gallery } from "./components/gallery";
-import { Disclaimer } from "./components/disclaimer";
 import { DogTrainingAdvice } from "./components/dog-training-advice";
 import { AboutMe } from "./components/about-me";
 import { DogWalksTable } from "./components/request-free-walks-form/dog-walks-table";
+import { BorrowMyDoggy } from "./components/borrow-my-doggy";
 
 export default function Home() {
   return (
@@ -29,7 +29,7 @@ export default function Home() {
           <hr />
           <DogTrainingAdvice />
           <hr />
-          <Disclaimer />
+          <BorrowMyDoggy />
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
           <hr />
