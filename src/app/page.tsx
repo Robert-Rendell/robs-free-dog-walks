@@ -31,6 +31,14 @@ export default function Home() {
                       height={300}
                       priority
                     />
+                    <Image
+                      className="dark:invert center"
+                      src="/dog-paw-prints-lg.png"
+                      alt="Kerala Doggie"
+                      width={300}
+                      height={300}
+                      priority
+                    />
                   </td>
                   <td>
                     <RequestFreeDogWalkForm />
