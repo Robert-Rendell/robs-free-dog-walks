@@ -1,4 +1,5 @@
 import { ReactNode, useState } from "react";
+import { useGetDogBreeds } from "./hooks/use-get-dog-breeds";
 
 type FormState = "submitted" | "submitting" | "draft";
 
@@ -16,23 +17,26 @@ export function RequestFreeDogWalkForm() {
   const [dogBreed, setDogBreed] = useState<string>();
   const [formState, setFormState] = useState<FormState>("draft");
 
+  const {
+    data: dogBreeds,
+    loading: isLoadingDogBreeds,
+    error: dogBreedsError,
+  } = useGetDogBreeds();
+
   function formOnChange() {
     if (!ownerEmail) {
       setFormState("draft");
     }
   }
   function populateDogBreeds(): ReactNode {
-    const options = [
-      "Border Collie",
-      "Cocker Spaniel",
-      "Cockapoo",
-      "Village dog",
-    ];
     return (
       <>
-        {options.map((option, i) => (
-          <option key={i}>{option}</option>
-        ))}
+        {dogBreeds &&
+          dogBreeds.dogs.length > 0 &&
+          dogBreeds.dogs.map((option, i) => <option key={i}>{option}</option>)}
+        {!dogBreeds ||
+          (isLoadingDogBreeds && <option>Loading dog breeds ...</option>)}
+        {dogBreedsError && <option>Error grabbing dog breeds</option>}
       </>
     );
   }
