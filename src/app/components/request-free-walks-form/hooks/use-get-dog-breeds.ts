@@ -13,6 +13,7 @@ export type PageViewResponse = {
   pageUrl: string;
 };
 
+const host = "https://robrendellwebsite.onrender.com";
 export const DISABLE_CUSTOM_ANALYTICS_KEY = "DISABLE_CUSTOM_ANALYTICS";
 
 type DogBreedsError = { message: string } | null;
@@ -28,7 +29,7 @@ export function useGetDogBreeds() {
       setError(null);
       try {
         const response = await fetch(
-          "https://robrendellwebsite.onrender.com/robs-free-dog-walks/get-dog-breeds",
+          host + "/robs-free-dog-walks/get-dog-breeds",
           { method: "GET" },
         );
         if (!response.ok) {
