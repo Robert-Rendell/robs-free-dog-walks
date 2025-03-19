@@ -9,7 +9,7 @@ export function DogWalksTable() {
           <tr>
             <td>
               <Image
-                className="dark:invert center rounded-picture"
+                className="center rounded-picture"
                 src="/kerala-doggie.jpg"
                 alt="Kerala Doggie"
                 width={300}
@@ -17,7 +17,7 @@ export function DogWalksTable() {
                 priority
               />
               <Image
-                className="dark:invert center"
+                className="center"
                 src="/dog-paw-prints-lg.png"
                 alt="Paws"
                 width={300}

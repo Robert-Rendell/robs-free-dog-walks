@@ -4,7 +4,7 @@ export function BorrowMyDoggy() {
     <>
       <h1>BorrowMyDoggy</h1>
       <Image
-        className="dark:invert center"
+        className="center"
         src="/borrowmydoggy.png"
         alt="Borrow my doggy"
         width={1000}

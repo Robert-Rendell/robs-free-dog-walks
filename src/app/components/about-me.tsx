@@ -13,9 +13,9 @@ export function AboutMe() {
           <li>get experience training dogs.</li>
         </ul>
         <Image
-          className="dark:invert center circle-picture"
-          src="/oryn.jpeg"
-          alt="Oryn"
+          className="center circle-picture"
+          src="/me.png"
+          alt="me"
           width={300}
           height={300}
           priority

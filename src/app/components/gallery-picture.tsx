@@ -12,7 +12,7 @@ export function GalleryPicture({
     <>
       <div style={{ position: "relative", margin: "5px" }}>
         <Image
-          className="dark:invert center rounded-picture"
+          className="center rounded-picture"
           src={`/${filename}`}
           alt={alt ?? "gallery picture missing"}
           width={300}
