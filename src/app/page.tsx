@@ -5,8 +5,10 @@ import { DogTrainingAdvice } from "./components/dog-training-advice";
 import { AboutMe } from "./components/about-me";
 import { DogWalksTable } from "./components/request-free-walks-form/dog-walks-table";
 import { BorrowMyDoggy } from "./components/borrow-my-doggy";
+import { usePageView } from "./hooks/use-page-views";
 
 export default function Home() {
+  usePageView("/robs-free-dog-walks");
   return (
     <>
       <div className="title-header">
