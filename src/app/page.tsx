@@ -1,6 +1,6 @@
 "use client";
 import { Testimonies } from "./components/testimonies/testimonies";
-import { Gallery } from "./components/gallery";
+import { Gallery } from "./components/gallery/gallery";
 import { DogTrainingAdvice } from "./components/dog-training-advice";
 import { AboutMe } from "./components/about-me";
 import { DogWalksTable } from "./components/request-free-walks-form/dog-walks-table";

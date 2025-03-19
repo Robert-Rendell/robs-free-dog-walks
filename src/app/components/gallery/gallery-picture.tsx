@@ -12,6 +12,7 @@ export function GalleryPicture({
     <>
       <div style={{ position: "relative", margin: "5px" }}>
         <Image
+          unoptimized={filename.includes(".gif")}
           className="center rounded-picture"
           src={`/${filename}`}
           alt={alt ?? "gallery picture missing"}
