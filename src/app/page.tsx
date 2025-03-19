@@ -5,10 +5,18 @@ import { DogTrainingAdvice } from "./components/dog-training-advice";
 import { AboutMe } from "./components/about-me";
 import { DogWalksTable } from "./components/request-free-walks-form/dog-walks-table";
 import { BorrowMyDoggy } from "./components/borrow-my-doggy";
-import { usePageView } from "./hooks/use-page-views";
+import {
+  DISABLE_CUSTOM_ANALYTICS_KEY,
+  usePageView,
+} from "./hooks/use-page-views";
+import { useCallback } from "react";
 
 export default function Home() {
   usePageView("/robs-free-dog-walks");
+  const disableAnalytics = useCallback(
+    () => localStorage.setItem(DISABLE_CUSTOM_ANALYTICS_KEY, "true"),
+    [],
+  );
   return (
     <>
       <div className="title-header">
@@ -34,6 +42,10 @@ export default function Home() {
           <BorrowMyDoggy />
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+          <span style={{ justifyContent: "left" }}>
+            Copyright &copy;{" "}
+            <span onClick={disableAnalytics}>Rob Rendell 2025</span>
+          </span>
           <hr />
         </footer>
       </div>
