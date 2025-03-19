@@ -17,7 +17,7 @@ export function DogWalksTable() {
                 priority
               />
               <Image
-                className="center"
+                className="dark:invert center"
                 src="/dog-paw-prints-lg.png"
                 alt="Paws"
                 width={300}
