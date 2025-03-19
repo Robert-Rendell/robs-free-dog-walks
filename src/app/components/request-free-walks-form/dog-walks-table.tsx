@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { RequestFreeDogWalkForm } from "./request-free-dog-walk-form";
 
 export function DogWalksTable() {

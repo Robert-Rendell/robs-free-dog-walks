@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { DogBreedsJson } from "../types/dog-breeds-json";
 
 export type PageView = {

@@ -1,15 +1,16 @@
 "use client";
-import { Testimonies } from "./components/testimonies/testimonies";
-import { Gallery } from "./components/gallery/gallery";
-import { DogTrainingAdvice } from "./components/dog-training-advice";
+import { useCallback } from "react";
+
 import { AboutMe } from "./components/about-me";
-import { DogWalksTable } from "./components/request-free-walks-form/dog-walks-table";
 import { BorrowMyDoggy } from "./components/borrow-my-doggy";
+import { DogTrainingAdvice } from "./components/dog-training-advice";
+import { Gallery } from "./components/gallery/gallery";
+import { DogWalksTable } from "./components/request-free-walks-form/dog-walks-table";
+import { Testimonies } from "./components/testimonies/testimonies";
 import {
   DISABLE_CUSTOM_ANALYTICS_KEY,
   usePageView,
 } from "./hooks/use-page-views";
-import { useCallback } from "react";
 
 export default function Home() {
   usePageView("/robs-free-dog-walks");
