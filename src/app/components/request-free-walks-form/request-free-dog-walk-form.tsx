@@ -10,6 +10,8 @@ const formStateLabels: Record<FormState, string> = {
   draft: "Submit",
 };
 
+const defaultBreedOption = "Choose a breed ...";
+
 export function RequestFreeDogWalkForm() {
   const [ownerEmail, setOwnerEmail] = useState<string>();
   const [ownerName, setOwnerName] = useState<string>();
@@ -30,10 +32,13 @@ export function RequestFreeDogWalkForm() {
     }
   }
   function populateDogBreeds(): ReactNode {
+    const isDogBreedsLoaded = dogBreeds && dogBreeds.dogs.length > 0;
     return (
       <>
-        {dogBreeds &&
-          dogBreeds.dogs.length > 0 &&
+        {isDogBreedsLoaded && (
+          <option key="default">{defaultBreedOption}</option>
+        )}
+        {isDogBreedsLoaded &&
           dogBreeds.dogs.map((option, i) => <option key={i}>{option}</option>)}
         {!dogBreeds ||
           (isLoadingDogBreeds && <option>Loading dog breeds ...</option>)}
@@ -42,13 +47,23 @@ export function RequestFreeDogWalkForm() {
     );
   }
 
+  function isRequestWalkFormValid() {
+    if (dogBreed === defaultBreedOption) {
+      alert("Dog breed is a required field.");
+      return false;
+    }
+    return true;
+  }
+
   function requestWalkFormSubmitted() {
-    setOwnerEmail("");
-    setOwnerName("");
-    setOwnerMessage("");
-    setBorrowDateTime("");
-    setDogBreed("");
-    setFormState("submitted");
+    if (isRequestWalkFormValid()) {
+      setOwnerEmail("");
+      setOwnerName("");
+      setOwnerMessage("");
+      setBorrowDateTime("");
+      setDogBreed("");
+      setFormState("submitted");
+    }
   }
   return (
     <>
