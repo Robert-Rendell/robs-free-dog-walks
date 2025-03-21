@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { ROBRENDELLWEBSITE_URL } from "@/app/const";
+
 import { DogBreedsJson } from "../types/dog-breeds-json";
 
 export type PageView = {
@@ -13,7 +15,6 @@ export type PageViewResponse = {
   pageUrl: string;
 };
 
-const host = "https://robrendellwebsite.onrender.com";
 export const DISABLE_CUSTOM_ANALYTICS_KEY = "DISABLE_CUSTOM_ANALYTICS";
 
 type DogBreedsError = { message: string } | null;
@@ -29,7 +30,7 @@ export function useGetDogBreeds() {
       setError(null);
       try {
         const response = await fetch(
-          host + "/robs-free-dog-walks/get-dog-breeds",
+          ROBRENDELLWEBSITE_URL + "/robs-free-dog-walks/get-dog-breeds",
           { method: "GET" },
         );
         if (!response.ok) {
@@ -38,9 +39,7 @@ export function useGetDogBreeds() {
         const result = await response.json();
         setData(result);
       } catch (err) {
-        if (typeof err === "object") {
-          setError(err as DogBreedsError);
-        }
+        setError(err as DogBreedsError);
       } finally {
         setLoading(false);
       }
