@@ -48,7 +48,7 @@ export function RequestFreeDogWalkForm() {
   }
 
   function isRequestWalkFormValid() {
-    if (dogBreed === defaultBreedOption) {
+    if (dogBreed === defaultBreedOption || !dogBreed) {
       alert("Dog breed is a required field.");
       return false;
     }
