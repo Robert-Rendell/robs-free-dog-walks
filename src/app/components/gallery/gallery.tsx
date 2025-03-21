@@ -4,7 +4,7 @@ export function Gallery() {
   return (
     <>
       <h1>Gallery</h1>
-      <h2>Here are some of the dogs I regularly walk:</h2>
+      <h2>Here are some dogs I take for walks:</h2>
       <table>
         <tbody>
           <tr>

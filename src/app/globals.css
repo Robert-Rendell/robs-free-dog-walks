@@ -142,19 +142,43 @@ b {
 
 @media (min-width: 320px) {
   /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  .gallery-picture-caption {
+    scale: 0.6;
+    opacity: 0.8;
+  }
 }
 @media (min-width: 480px) {
   /* smartphones, Android phones, landscape iPhone */
+  .gallery-picture-caption {
+    scale: 0.6;
+    opacity: 0.8;
+  }
 }
 @media (min-width: 600px) {
+  .gallery-picture-caption {
+    scale: 0.6;
+    opacity: 0.8;
+  }
   /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 }
 @media (min-width: 801px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .gallery-picture-caption {
+    scale: 1;
+    opacity: 1;
+  }
 }
 @media (min-width: 1025px) {
   /* big landscape tablets, laptops, and desktops */
+  .gallery-picture-caption {
+    scale: 1;
+    opacity: 1;
+  }
 }
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
+  .gallery-picture-caption {
+    scale: 1;
+    opacity: 1;
+  }
 }

@@ -22,11 +22,12 @@ export function GalleryPicture({
         />
         {caption && (
           <span
+            className="gallery-picture-caption"
             style={{
               position: "absolute",
+              fontSize: "x-large",
               top: "50px",
               right: "50px",
-              fontSize: "x-large",
               color: "indigo",
               background: "white",
               borderRadius: "15%",

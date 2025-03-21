@@ -47,7 +47,6 @@ export default function Home() {
             Copyright &copy;{" "}
             <span onClick={disableAnalytics}>Rob Rendell 2025</span>
           </span>
-          <hr />
         </footer>
       </div>
     </>
