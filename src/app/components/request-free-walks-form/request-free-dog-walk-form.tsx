@@ -25,6 +25,7 @@ export function RequestFreeDogWalkForm() {
   const [dogName, setDogName] = useState<string>("");
   const [dogBreed, setDogBreed] = useState<string>("");
   const [location, setLocation] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [formState, setFormState] = useState<FormState>("draft");
 
   const bookingDataState = useState<BookDogWalkingPayload | null>(null);
@@ -43,12 +44,12 @@ export function RequestFreeDogWalkForm() {
     bookingPayload: {
       owner: ownerName,
       email: ownerEmail,
-      dog: "",
-      dogBreed: "",
-      message: "",
-      dogWalkDatetime: "",
-      location: "",
-      phoneNumber: "",
+      phoneNumber,
+      dog: dogName,
+      dogBreed: dogBreed,
+      message: ownerMessage,
+      dogWalkDatetime: borrowDateTime,
+      location,
     },
   });
 
@@ -103,6 +104,7 @@ export function RequestFreeDogWalkForm() {
       setDogBreed("");
       setDogName("");
       setLocation("");
+      setPhoneNumber("");
       setFormState("submitted");
       setBookingError(null);
       setIsBookingLoadingState(false);
@@ -149,6 +151,12 @@ export function RequestFreeDogWalkForm() {
             type="text"
             onChange={(e) => setLocation(e.target.value)}
             value={location}
+          />
+          <p>Mobile number</p>
+          <input
+            type="text"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={phoneNumber}
           />
           <p>Your message</p>
           <textarea
