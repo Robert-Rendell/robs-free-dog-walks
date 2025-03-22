@@ -6,22 +6,25 @@ import useBookFreeDogWalk, {
 import { useGetDogBreeds } from "./hooks/use-get-dog-breeds";
 import { BookDogWalkingPayload } from "./types/payloads/book-dog-walking.payload";
 
-type FormState = "submitted" | "submitting" | "draft";
+type FormState = "submitted" | "submitting" | "draft" | "error";
 
 const formStateLabels: Record<FormState, string> = {
   submitted: "Submitted!",
   submitting: "Submitting...",
   draft: "Submit",
+  error: "Error!",
 };
 
 const defaultBreedOption = "Choose a breed ...";
 
 export function RequestFreeDogWalkForm() {
-  const [ownerEmail, setOwnerEmail] = useState<string>();
-  const [ownerName, setOwnerName] = useState<string>();
-  const [ownerMessage, setOwnerMessage] = useState<string>();
-  const [borrowDateTime, setBorrowDateTime] = useState<string>();
-  const [dogBreed, setDogBreed] = useState<string>();
+  const [ownerName, setOwnerName] = useState<string>("");
+  const [ownerEmail, setOwnerEmail] = useState<string>("");
+  const [ownerMessage, setOwnerMessage] = useState<string>("");
+  const [borrowDateTime, setBorrowDateTime] = useState<string>("");
+  const [dogName, setDogName] = useState<string>("");
+  const [dogBreed, setDogBreed] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
   const [formState, setFormState] = useState<FormState>("draft");
 
   const bookingDataState = useState<BookDogWalkingPayload | null>(null);
@@ -31,12 +34,22 @@ export function RequestFreeDogWalkForm() {
   const [, setIsBookingLoadingState] = bookingLoadingState;
 
   const bookingErrorState = useState<BookingError>(null);
-  // const [bookingErrorState, setBookingErrorState] = bookingErrorState;
+  const [bookingError, setBookingError] = bookingErrorState;
 
   useBookFreeDogWalk({
     bookingDataState,
     bookingLoadingState,
     bookingErrorState,
+    bookingPayload: {
+      owner: ownerName,
+      email: ownerEmail,
+      dog: "",
+      dogBreed: "",
+      message: "",
+      dogWalkDatetime: "",
+      location: "",
+      phoneNumber: "",
+    },
   });
 
   const {
@@ -88,10 +101,19 @@ export function RequestFreeDogWalkForm() {
       setOwnerMessage("");
       setBorrowDateTime("");
       setDogBreed("");
+      setDogName("");
+      setLocation("");
       setFormState("submitted");
+      setBookingError(null);
       setIsBookingLoadingState(false);
     }
-  }, [bookingData, setOwnerEmail, setIsBookingLoadingState]);
+  }, [bookingData, setOwnerEmail, setIsBookingLoadingState, setBookingError]);
+
+  useEffect(() => {
+    if (bookingError) {
+      setFormState("error");
+    }
+  }, [bookingError]);
   return (
     <>
       <div className="request-walk-form">
@@ -109,6 +131,24 @@ export function RequestFreeDogWalkForm() {
             type="email"
             onChange={(e) => setOwnerEmail(e.target.value)}
             value={ownerEmail}
+          />
+          <p>Your dog{"'"}s name</p>
+          <input
+            type="text"
+            onChange={(e) => setDogName(e.target.value)}
+            value={dogName}
+          />
+          <p>Your dog{"'"}s name</p>
+          <input
+            type="text"
+            onChange={(e) => setDogName(e.target.value)}
+            value={dogName}
+          />
+          <p>Where are you?</p>
+          <input
+            type="text"
+            onChange={(e) => setLocation(e.target.value)}
+            value={location}
           />
           <p>Your message</p>
           <textarea

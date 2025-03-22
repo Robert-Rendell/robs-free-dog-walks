@@ -1,29 +1,18 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 
-import { ROBRENDELLWEBSITE_URL } from "@/app/const";
+import { ROBRENDELLWEBSITE_URL, ROBS_FREE_DOG_WALKS } from "@/app/const";
 
 import { BookDogWalkingPayload } from "../types/payloads/book-dog-walking.payload";
-
-export type PageView = {
-  ipAddress: string;
-  dateTime: string;
-};
-
-export type PageViewResponse = {
-  total: number;
-  views: PageView[];
-  pageUrl: string;
-};
-
-export const DISABLE_CUSTOM_ANALYTICS_KEY = "DISABLE_CUSTOM_ANALYTICS";
 
 export type BookingError = { message: string } | null;
 
 export function useBookFreeDogWalk({
+  bookingPayload,
   bookingDataState,
   bookingLoadingState,
   bookingErrorState,
 }: {
+  bookingPayload: BookDogWalkingPayload;
   bookingDataState: [
     BookDogWalkingPayload | null,
     Dispatch<SetStateAction<BookDogWalkingPayload | null>>,
@@ -41,8 +30,15 @@ export function useBookFreeDogWalk({
         setError(null);
         try {
           const response = await fetch(
-            ROBRENDELLWEBSITE_URL + "/robs-free-dog-walks/book-free-dog-walk",
-            { method: "GET" },
+            `${ROBRENDELLWEBSITE_URL}/${ROBS_FREE_DOG_WALKS}/book-free-dog-walk`,
+            {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(bookingPayload),
+            },
           );
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -58,7 +54,7 @@ export function useBookFreeDogWalk({
 
       fetchData();
     }
-  }, [loading, setData, setError, setLoading]);
+  }, [loading, setData, setError, setLoading, bookingPayload]);
 }
 
 export default useBookFreeDogWalk;

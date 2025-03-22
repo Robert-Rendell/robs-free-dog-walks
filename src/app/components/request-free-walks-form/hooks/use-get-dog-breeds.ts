@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { ROBRENDELLWEBSITE_URL } from "@/app/const";
+import { ROBRENDELLWEBSITE_URL, ROBS_FREE_DOG_WALKS } from "@/app/const";
 
 import { DogBreedsJson } from "../types/json/dog-breeds-json";
 
@@ -30,7 +30,7 @@ export function useGetDogBreeds() {
       setError(null);
       try {
         const response = await fetch(
-          ROBRENDELLWEBSITE_URL + "/robs-free-dog-walks/get-dog-breeds",
+          `${ROBRENDELLWEBSITE_URL}/${ROBS_FREE_DOG_WALKS}/get-dog-breeds`,
           { method: "GET" },
         );
         if (!response.ok) {
