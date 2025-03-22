@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { ROBRENDELLWEBSITE_URL } from "@/app/const";
 
-import { DogBreedsJson } from "../types/dog-breeds-json";
+import { DogBreedsJson } from "../types/json/dog-breeds-json";
 
 export type PageView = {
   ipAddress: string;
@@ -21,7 +21,7 @@ type DogBreedsError = { message: string } | null;
 
 export function useGetDogBreeds() {
   const [data, setData] = useState<DogBreedsJson | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<DogBreedsError>(null);
 
   useEffect(() => {

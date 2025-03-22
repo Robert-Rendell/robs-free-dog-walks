@@ -1,6 +1,10 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
+import useBookFreeDogWalk, {
+  BookingError,
+} from "./hooks/use-book-free-dog-walk";
 import { useGetDogBreeds } from "./hooks/use-get-dog-breeds";
+import { BookDogWalkingPayload } from "./types/payloads/book-dog-walking.payload";
 
 type FormState = "submitted" | "submitting" | "draft";
 
@@ -19,6 +23,21 @@ export function RequestFreeDogWalkForm() {
   const [borrowDateTime, setBorrowDateTime] = useState<string>();
   const [dogBreed, setDogBreed] = useState<string>();
   const [formState, setFormState] = useState<FormState>("draft");
+
+  const bookingDataState = useState<BookDogWalkingPayload | null>(null);
+  const [bookingData] = bookingDataState;
+
+  const bookingLoadingState = useState(true);
+  const [, setIsBookingLoadingState] = bookingLoadingState;
+
+  const bookingErrorState = useState<BookingError>(null);
+  // const [bookingErrorState, setBookingErrorState] = bookingErrorState;
+
+  useBookFreeDogWalk({
+    bookingDataState,
+    bookingLoadingState,
+    bookingErrorState,
+  });
 
   const {
     data: dogBreeds,
@@ -57,14 +76,22 @@ export function RequestFreeDogWalkForm() {
 
   function requestWalkFormSubmitted() {
     if (isRequestWalkFormValid()) {
+      setFormState("submitting");
+      setIsBookingLoadingState(true);
+    }
+  }
+
+  useEffect(() => {
+    if (bookingData) {
       setOwnerEmail("");
       setOwnerName("");
       setOwnerMessage("");
       setBorrowDateTime("");
       setDogBreed("");
       setFormState("submitted");
+      setIsBookingLoadingState(false);
     }
-  }
+  }, [bookingData, setOwnerEmail, setIsBookingLoadingState]);
   return (
     <>
       <div className="request-walk-form">
