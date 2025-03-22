@@ -105,6 +105,7 @@ export function RequestFreeDogWalkForm() {
       setDogName("");
       setLocation("");
       setPhoneNumber("");
+
       setFormState("submitted");
       setBookingError(null);
       setIsBookingLoadingState(false);
@@ -134,43 +135,36 @@ export function RequestFreeDogWalkForm() {
             onChange={(e) => setOwnerEmail(e.target.value)}
             value={ownerEmail}
           />
-          <p>Your dog{"'"}s name</p>
-          <input
-            type="text"
-            onChange={(e) => setDogName(e.target.value)}
-            value={dogName}
-          />
-          <p>Your dog{"'"}s name</p>
-          <input
-            type="text"
-            onChange={(e) => setDogName(e.target.value)}
-            value={dogName}
-          />
-          <p>Where are you?</p>
-          <input
-            type="text"
-            onChange={(e) => setLocation(e.target.value)}
-            value={location}
-          />
           <p>Mobile number</p>
           <input
             type="text"
             onChange={(e) => setPhoneNumber(e.target.value)}
             value={phoneNumber}
           />
-          <p>Your message</p>
-          <textarea
-            onChange={(e) => setOwnerMessage(e.target.value)}
-            value={ownerMessage}
+          <p>Your dog{"'"}s name</p>
+          <input
+            type="text"
+            onChange={(e) => setDogName(e.target.value)}
+            value={dogName}
           />
-
-          <p>Dog Breed</p>
+          <p>Your dog{"'"}s breed</p>
           <select
             onChange={(e) => setDogBreed(e.target.value)}
             value={dogBreed}
           >
             {populateDogBreeds()}
           </select>
+          <p>Where are you?</p>
+          <input
+            type="text"
+            onChange={(e) => setLocation(e.target.value)}
+            value={location}
+          />
+          <p>Your message</p>
+          <textarea
+            onChange={(e) => setOwnerMessage(e.target.value)}
+            value={ownerMessage}
+          />
           <p>Date / Time slot for walkies</p>
           <input
             type="datetime-local"
