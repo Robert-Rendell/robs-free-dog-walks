@@ -31,7 +31,7 @@ export function RequestFreeDogWalkForm() {
   const bookingDataState = useState<BookDogWalkingPayload | null>(null);
   const [bookingData] = bookingDataState;
 
-  const bookingLoadingState = useState(true);
+  const bookingLoadingState = useState(false);
   const [, setIsBookingLoadingState] = bookingLoadingState;
 
   const bookingErrorState = useState<BookingError>(null);
