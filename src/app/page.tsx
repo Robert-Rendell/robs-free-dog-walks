@@ -1,5 +1,5 @@
 "use client";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import { AboutMe } from "./components/about-me";
 import { BorrowMyDoggy } from "./components/borrow-my-doggy";
@@ -14,10 +14,18 @@ import {
 
 export default function Home() {
   usePageView("/robs-free-dog-walks");
-  const disableAnalytics = useCallback(
-    () => localStorage.setItem(DISABLE_CUSTOM_ANALYTICS_KEY, "true"),
-    [],
-  );
+  const [analyticsToggled, toggleAnalytics] = useState<boolean>(false);
+  const disableAnalytics = useCallback(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(DISABLE_CUSTOM_ANALYTICS_KEY, "true");
+      toggleAnalytics(true);
+    }
+  }, []);
+  const isAnalyticsDisabled = useCallback(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(DISABLE_CUSTOM_ANALYTICS_KEY);
+    }
+  }, [analyticsToggled]);
   return (
     <>
       <div className="title-header">
@@ -45,7 +53,14 @@ export default function Home() {
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
           <span style={{ justifyContent: "left" }}>
             Copyright &copy;{" "}
-            <span onClick={disableAnalytics}>Rob Rendell 2025</span>
+            <span onClick={disableAnalytics}>
+              Rob Rendell 2025{" "}
+              {isAnalyticsDisabled() && (
+                <button style={{ background: "red", color: "white" }}>
+                  analytics disabled
+                </button>
+              )}
+            </span>
           </span>
         </footer>
       </div>
