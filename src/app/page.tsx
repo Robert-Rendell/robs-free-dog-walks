@@ -21,6 +21,12 @@ export default function Home() {
       toggleAnalytics(true);
     }
   }, []);
+  const enableAnalytics = useCallback(() => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem(DISABLE_CUSTOM_ANALYTICS_KEY);
+      toggleAnalytics(false);
+    }
+  }, []);
   const isAnalyticsDisabled = useCallback(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem(DISABLE_CUSTOM_ANALYTICS_KEY);
@@ -53,14 +59,15 @@ export default function Home() {
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
           <span style={{ justifyContent: "left" }}>
             Copyright &copy;{" "}
-            <span onClick={disableAnalytics}>
-              Rob Rendell 2025{" "}
-              {isAnalyticsDisabled() && (
-                <button style={{ background: "red", color: "white" }}>
-                  analytics disabled
-                </button>
-              )}
-            </span>
+            <span onClick={disableAnalytics}>Rob Rendell 2025 </span>
+            {isAnalyticsDisabled() && (
+              <button
+                onClick={enableAnalytics}
+                style={{ background: "red", color: "white" }}
+              >
+                analytics disabled
+              </button>
+            )}
           </span>
         </footer>
       </div>
